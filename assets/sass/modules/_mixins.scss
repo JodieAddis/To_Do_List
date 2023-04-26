@@ -1,0 +1,33 @@
+
+
+@mixin title {
+    color: $color_head;
+    font-weight: 700;
+    font-size: 45px;
+    text-align: center;
+    font-family: narrow;
+}
+
+@mixin list {
+    color : $color_list;
+    font-family: narrow;
+    font-size: 20px;
+    list-style-type: none;
+    text-transform: capitalize; 
+    margin : 5px 30px 5px 30px ;
+}
+
+@mixin add {
+    border-radius: 10px;
+    margin-left: 5px;
+    border: $border solid 1px;
+    background-color: $color_list_hover;
+    color: $border;
+    font-family: narrow;
+    font-weight: 700;
+}
+
+@mixin delete {
+    background-color: $color_head;
+    border: none;
+}

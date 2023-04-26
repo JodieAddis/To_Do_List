@@ -26,9 +26,9 @@ function saveToDo(){
         alert('Please, write to do');//Mets une alerte si submit sans avoir écrit
     } else {
         const ToDo = {
-            value : ToDoValue, 
-            checked : false, //Non coché
-            color : '#' + Math.floor(Math.random()*16777215).toString(16),//Couleur générée aléatoirement pour chaque 'to do'
+            value : ToDoValue,
+            // checked : false, //Non coché 
+            // color : '#' + Math.floor(Math.random()*16777215).toString(16),//Couleur générée aléatoirement pour chaque 'to do'
         }
         ToDoThings.push(ToDo); //Injecte les objet ToDo dans l'array toDoThings
         
@@ -48,12 +48,11 @@ function renderTodo(){
     ToDoThings.forEach((ToDo, index) => {
         toDoList.innerHTML += `
             <ul class="my_list" id=${index}>
-                <i class="bi ${ToDo.cheked ? 'bi-check-circle' : 'bi-circle'}"
-                style='color : ${ToDo.color}'
-                data-action='check'
-                ></i>
-                <li data-action='check'>${ToDo.value}</li>
-                <i class="bi bi-trash3" data-action='delete'></i>
+                    <li id='element'>
+                        <input type='checkbox' id='check'>
+                        ${ToDo.value}
+                        <button id='delete' data-action='delete'><img src="./assets/img/trash3.svg" id='trash'></button>
+                    </li>
             </ul>
         ` 
     })
@@ -68,50 +67,16 @@ toDoList.addEventListener('click', (event) => {
     if(parentElement.className !== 'my_list') return ; //Permet d'afficher le parent uniquement sur les éléments de liste et non le container
     const todo = parentElement; 
     const todoId = Number(todo.id);//Permet de comparer aux index de l'array
-
     //Cibler les actions 'check' et 'delete'
     const action = target.dataset.action;
 
-    action === 'check' && checkToDo(todoId); 
     action === 'delete' && deleteToDo(todoId); 
 })
 
-//Création des fonctions permettant les actions 'check' et 'delete'
-function checkToDo(todoId){
-    ToDoThings = ToDoThings.map((todo, index) => {
-        if(index === todoId){
-            return {
-                value : todo.value,
-                color : todo.color,
-                checked : !todo.checked,
-            }
-        } else {
-            return {
-                value : todo.value,
-                color : todo.color,
-                checked : todo.checked,
-            }
-        }
-    }); //???
-}
-
-/* Possibilité d'écrire le 'if' autrement, car on se répète : 
-        if(){
-            return {
-                value : todo.value,
-                color : todo.color,
-                checked : index === todoId ? !todo.checked : todo.checked,
-            }
-        }
-    }
-*/
-
-
-/* Delete a todo */
+const btnDelete = document.getElementById('delete').addEventListener('click', deleteToDo); 
+//Function delete
 function deleteToDo(todoId){
     ToDoThings = ToDoThings.filter((todo, index) => index !== todoId); 
-    //Re-render
+    
     renderTodo(); 
 }
-
-

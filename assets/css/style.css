@@ -1,0 +1,92 @@
+@font-face {
+  font-family: narrow;
+  src: url(../font/PTSansNarrow-Regular.ttf);
+}
+html {
+  width: 100%;
+  height: 100%;
+}
+html body {
+  background-color: #a0d175;
+}
+html body main {
+  border-radius: 20px;
+  height: 400px;
+  display: grid;
+  grid-template-columns: 1fr 280px 1fr;
+  grid-template-rows: 100px 450px 100px;
+}
+html body main .card_list {
+  grid-column: 2;
+  grid-row: 2;
+  border-radius: 20px;
+  box-shadow: 10px 10px 5px -6px rgba(0, 0, 0, 0.41);
+  border: #265200 solid 2px;
+  background-color: #FFFFFF;
+}
+html body main .card_list .top_list {
+  height: 150px;
+  background-image: url(../img/IMG_2664.JPG);
+  background-size: cover;
+  border-radius: 20px 20px 0 0;
+  display: flex;
+  justify-content: center;
+}
+html body main .card_list .top_list h1 {
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 45px;
+  text-align: center;
+  font-family: narrow;
+  align-self: center;
+}
+html body main .card_list .body_list {
+  border-top: #265200 solid 2px;
+}
+html body main .card_list .body_list .input_section {
+  margin-bottom: 20px;
+}
+html body main .card_list .body_list .input_section .item_submission {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+html body main .card_list .body_list .input_section .item_submission button {
+  border-radius: 10px;
+  margin-left: 5px;
+  border: #265200 solid 1px;
+  background-color: #a0d175;
+  color: #265200;
+  font-family: narrow;
+  font-weight: 700;
+}
+html body main .card_list .body_list .input_section .item_submission input {
+  border-radius: 10px;
+  margin-left: 5px;
+  border: #265200 solid 1px;
+  background-color: #a0d175;
+  color: #265200;
+  font-family: narrow;
+  font-weight: 700;
+  background-color: #FFFFFF;
+}
+html body main .card_list .global_list .my_list {
+  display: flex;
+  justify-content: space-between;
+  color: #7a7c7b;
+  font-family: narrow;
+  font-size: 20px;
+  list-style-type: none;
+  text-transform: capitalize;
+  margin: 5px 30px 5px 30px;
+}
+html body main .card_list .global_list .my_list #element {
+  width: 150px;
+}
+html body main .card_list .global_list .my_list button {
+  background-color: #FFFFFF;
+  border: none;
+}
+html body main .card_list .global_list .my_list button :hover {
+  filter: invert(11%) sepia(90%) saturate(5194%) hue-rotate(9deg) brightness(79%) contrast(119%);
+}/*# sourceMappingURL=style.css.map */

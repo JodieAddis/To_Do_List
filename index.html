@@ -5,34 +5,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Jodie Addis">
+    <link rel="stylesheet" href="/assets/css/reset.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
 
-    <!-- <script type="modules" src="./assets/js/add_function.js"></script> -->
     <script  type="module" src="./assets/js/const.js"></script>
     <title>To Do List</title>
 </head>
 <body>
     <main>
-        <section class="top_card">
-            <h1>To do list</h1>
-            <p>Date</p>
-        </section>
-        <section class="input_section">
-            <form class="item_submission">
-                <input type="text" id="newItem" placeholder="Add a to do">
-                <label for="newItem"></label>
-                <button type="submit" class="submit_btn">Submit</button>
-                <div class="task"></div>
-            </form>
-        </section>
-        <section class="global_list">
-            <!-- <ul class="my_list">
-                <li>Test 1</li>
-                <i class="bi bi-trash3"></i>
-            </ul> -->
-        </section>
+        <article class="card_list">
+            <article class="top_list">
+                <h1>To Do</h1>
+                <!-- <p>Date</p> -->
+            </article>
+            <article class="body_list">
+                <section class="input_section">
+                    <form class="item_submission">
+                        <input type="text" id="newItem" placeholder="Add a todo">
+                        <label for="newItem"></label>
+                        <button type="submit" class="submit_btn">Add</button>
+                    </form>
+                </section>
+                <section class="global_list">
+                    <!-- <ul class="my_list">
+                        <li>Test 1</li>
+                        <i class="bi bi-trash3"></i>
+                    </ul> -->
+                </section>
+            </article>
+        </article>
     </main>
     <footer>
         <p></p>
+        
     </footer>
     
 </body>
