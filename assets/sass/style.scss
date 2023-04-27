@@ -54,14 +54,15 @@ html{
                 .global_list{
                     .my_list{
                         @include list ;
-                        justi
-                        :hover{
-                            background-color: $color_list_hover; 
-                        }
-                        button{
-                            @include delete;
-                            :hover{
-                                filter: invert(11%) sepia(90%) saturate(5194%) hue-rotate(9deg) brightness(79%) contrast(119%); 
+                        div{
+                            display: flex;
+                            justify-content: space-between;
+                            button{
+                                @include delete;
+                                :hover{
+                                    cursor: pointer;
+                                    filter: invert(11%) sepia(90%) saturate(5194%) hue-rotate(9deg) brightness(79%) contrast(119%); 
+                                }
                             }
                         }
                     }

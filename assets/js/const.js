@@ -3,8 +3,6 @@
 const form = document.querySelector('.item_submission'); 
 const toDoInput = document.querySelector('#newItem'); 
 
-
-
 form.addEventListener('submit', function (event){
     event.preventDefault() ; 
     // console.log('submit');
@@ -15,7 +13,6 @@ form.addEventListener('submit', function (event){
 })
 
 let ToDoThings = JSON.parse(localStorage.getItem('ToDoThings')) || [];
-//On va stocker les entrées dans un array, donc chaque élément sauvegarder dans l'array sera un objet
 
 //On définit la fonction saveToDo()
 function saveToDo(){
@@ -28,9 +25,6 @@ function saveToDo(){
     } else {
         const ToDo = {
             value : ToDoValue,
-            id : '',
-            // checked : false, //Non coché 
-            // color : '#' + Math.floor(Math.random()*16777215).toString(16),//Couleur générée aléatoirement pour chaque 'to do'
         }
         ToDoThings.push(ToDo); //Injecte les objet ToDo dans l'array toDoThings
         
@@ -54,11 +48,13 @@ function renderTodo(){
     ToDoThings.forEach((ToDo, index) => {
         toDoList.innerHTML += `
             <ul class="my_list" id=${index}>
-                    <li id='element'>
-                        <input type='checkbox' id='check'>
-                        ${ToDo.value}
+                <div id='container_element'>
+                        <li id='element'>
+                            <input type='checkbox' id='check'>
+                            ${ToDo.value}
+                        </li>
                         <button id='delete' data-action="delete-item"><img src="./assets/img/trash3.svg" id='trash' data-action="delete"></button>
-                    </li>
+                </div>
             </ul>
         ` 
     })
@@ -84,25 +80,24 @@ toDoList.addEventListener('click', (event) => {
     action === "delete-item" && deleteToDo(todoId); 
 })
 
-// const item = document.querySelector('#element')
 
-const btnDelete = document.getElementById('delete').addEventListener('click', removeItem); 
-
+const buttonDelete = document.getElementById('delete').addEventListener('click', deleteToDo); 
 // function deleteToDo(todoId){
 //     ToDoThings = ToDoThings.filter((todo, index) => index !== todoId); 
-//     // ToDoThings.splice(todoId, 1);
+//     ToDoThings.splice(todoId, 1);
 
 //     renderTodo(); 
 
 //     localStorage.setItem('TodoThings', JSON.stringify(ToDoThings)); 
 // }
 
-function removeItem(){
-    const ul = document.querySelector('.my_list');
-    const element = document.querySelector('#element');
-    ul.removeChild(element); 
+
+
+function deleteToDo(){
+    const item = document.getElementById('element'); 
+    const container = document.getElementById('container_element');
+    // const itemAndButton = item + buttonDelete; 
+    container.removeChild(item); 
+
+    localStorage.setItem('TodoThings', JSON.stringify(ToDoThings)); 
 }
-
-
-
-
