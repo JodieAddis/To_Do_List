@@ -75,8 +75,10 @@ toDoList.addEventListener('click', (event) => {
 
 const btnDelete = document.getElementById('delete').addEventListener('click', deleteToDo); 
 //Function delete
-function deleteToDo(todoId){
-    ToDoThings = ToDoThings.filter((todo, index) => index !== todoId); 
+// function deleteToDo(todoId){
+//     ToDoThings = ToDoThings.filter((todo, index) => index !== todoId); 
     
-    renderTodo(); 
-}
+//     renderTodo(); 
+// }
+
+//Local Storage

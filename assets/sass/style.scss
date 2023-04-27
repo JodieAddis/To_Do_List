@@ -1,6 +1,7 @@
 
 @import './modules/_txt_Variables';
 @import './modules/_mixins'; 
+@import './modules/mediaQuery'; 
 
 html{
     width: 100%;
@@ -52,11 +53,10 @@ html{
                 }
                 .global_list{
                     .my_list{
-                        display: flex;
-                        justify-content: space-between;
                         @include list ;
                         #element{
-                            width: 150px;
+                            display: grid;
+                            grid-template-columns: 1fr 1fr ;
                         }
                         button{
                             @include delete;
