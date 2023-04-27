@@ -1,20 +1,21 @@
 
 
-let a = 12;
-let b = 15; 
-console.log(a+b);//Test 
-
 const form = document.querySelector('.item_submission'); 
 const toDoInput = document.querySelector('#newItem'); 
+
+
 
 form.addEventListener('submit', function (event){
     event.preventDefault() ; 
     // console.log('submit');
     saveToDo(); //Fonction définit par la suite
     renderTodo();
+
+    localStorage.setItem('TodoThings', JSON.stringify(ToDoThings)); 
 })
 
-let ToDoThings = [];//On va stocker les entrées dans un array, donc chaque élément sauvegarder dans l'array sera un objet
+let ToDoThings = JSON.parse(localStorage.getItem('ToDoThings')) || [];
+//On va stocker les entrées dans un array, donc chaque élément sauvegarder dans l'array sera un objet
 
 //On définit la fonction saveToDo()
 function saveToDo(){
@@ -42,6 +43,10 @@ function saveToDo(){
 const toDoList = document.querySelector('.global_list');//On sélectionne la section contenant le <ul>
 
 function renderTodo(){
+    if(ToDoThings.length === 0){
+        toDoList.innerHTML= '<center>Nothing to do</center>'
+        return
+    }
     //Clear element before a re-render
     toDoList.innerHTML = '';
     //Ajout du code HTML pour chaque objet de l'array, donc chaque input
@@ -58,6 +63,9 @@ function renderTodo(){
     })
 }
 
+//First render
+renderTodo(); 
+
 /* TARGET A TODO : click event listener for all the todo*/
 toDoList.addEventListener('click', (event) => {
     const target = event.target ;//On sait quel élément exactement est cliqué
@@ -73,12 +81,13 @@ toDoList.addEventListener('click', (event) => {
     action === 'delete' && deleteToDo(todoId); 
 })
 
-const btnDelete = document.getElementById('delete').addEventListener('click', deleteToDo); 
-//Function delete
+
+
+// const btnDelete = document.getElementById('delete').addEventListener('click', deleteToDo); 
+
 // function deleteToDo(todoId){
 //     ToDoThings = ToDoThings.filter((todo, index) => index !== todoId); 
     
 //     renderTodo(); 
+//     localStorage.setItem('TodoThings', JSON.stringify(ToDoThings)); 
 // }
-
-//Local Storage
