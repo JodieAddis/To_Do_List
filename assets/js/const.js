@@ -84,9 +84,9 @@ toDoList.addEventListener('click', (event) => {
     action === "delete-item" && deleteToDo(todoId); 
 })
 
-const item = document.getElementsById('element')
+// const item = document.querySelector('#element')
 
-const btnDelete = document.getElementById('delete').addEventListener('click', deleteToDo); 
+const btnDelete = document.getElementById('delete').addEventListener('click', removeItem); 
 
 // function deleteToDo(todoId){
 //     ToDoThings = ToDoThings.filter((todo, index) => index !== todoId); 
@@ -96,6 +96,12 @@ const btnDelete = document.getElementById('delete').addEventListener('click', de
 
 //     localStorage.setItem('TodoThings', JSON.stringify(ToDoThings)); 
 // }
+
+function removeItem(){
+    const ul = document.querySelector('.my_list');
+    const element = document.querySelector('#element');
+    ul.removeChild(element); 
+}
 
 
 
