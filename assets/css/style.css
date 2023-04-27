@@ -2,6 +2,12 @@
   font-family: narrow;
   src: url(../font/PTSansNarrow-Regular.ttf);
 }
+@media (max-width: 1140px) {
+  html body main {
+    grid-template-columns: 1fr 500px 1fr;
+    grid-template-rows: 100px 700px 100px;
+  }
+}
 html {
   width: 100%;
   height: 100%;
@@ -71,8 +77,6 @@ html body main .card_list .body_list .input_section .item_submission input {
   background-color: #FFFFFF;
 }
 html body main .card_list .global_list .my_list {
-  display: flex;
-  justify-content: space-between;
   color: #7a7c7b;
   font-family: narrow;
   font-size: 20px;
@@ -80,8 +84,8 @@ html body main .card_list .global_list .my_list {
   text-transform: capitalize;
   margin: 5px 30px 5px 30px;
 }
-html body main .card_list .global_list .my_list #element {
-  width: 150px;
+html body main .card_list .global_list .my_list justi :hover {
+  background-color: #a0d175;
 }
 html body main .card_list .global_list .my_list button {
   background-color: #FFFFFF;

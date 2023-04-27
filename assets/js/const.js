@@ -11,7 +11,7 @@ form.addEventListener('submit', function (event){
     saveToDo(); //Fonction définit par la suite
     renderTodo();
 
-    localStorage.setItem('TodoThings', JSON.stringify(ToDoThings)); 
+    localStorage.setItem('ToDoThings', JSON.stringify(ToDoThings)); 
 })
 
 let ToDoThings = JSON.parse(localStorage.getItem('ToDoThings')) || [];
@@ -28,6 +28,7 @@ function saveToDo(){
     } else {
         const ToDo = {
             value : ToDoValue,
+            id : '',
             // checked : false, //Non coché 
             // color : '#' + Math.floor(Math.random()*16777215).toString(16),//Couleur générée aléatoirement pour chaque 'to do'
         }
@@ -56,7 +57,7 @@ function renderTodo(){
                     <li id='element'>
                         <input type='checkbox' id='check'>
                         ${ToDo.value}
-                        <button id='delete' data-action='delete'><img src="./assets/img/trash3.svg" id='trash'></button>
+                        <button id='delete' data-action="delete-item"><img src="./assets/img/trash3.svg" id='trash' data-action="delete"></button>
                     </li>
             </ul>
         ` 
@@ -75,19 +76,27 @@ toDoList.addEventListener('click', (event) => {
     if(parentElement.className !== 'my_list') return ; //Permet d'afficher le parent uniquement sur les éléments de liste et non le container
     const todo = parentElement; 
     const todoId = Number(todo.id);//Permet de comparer aux index de l'array
-    //Cibler les actions 'check' et 'delete'
+
     const action = target.dataset.action;
 
-    action === 'delete' && deleteToDo(todoId); 
+    console.log(todoId, action);
+
+    action === "delete-item" && deleteToDo(todoId); 
 })
 
+const item = document.getElementsById('element')
 
-
-// const btnDelete = document.getElementById('delete').addEventListener('click', deleteToDo); 
+const btnDelete = document.getElementById('delete').addEventListener('click', deleteToDo); 
 
 // function deleteToDo(todoId){
 //     ToDoThings = ToDoThings.filter((todo, index) => index !== todoId); 
-    
+//     // ToDoThings.splice(todoId, 1);
+
 //     renderTodo(); 
+
 //     localStorage.setItem('TodoThings', JSON.stringify(ToDoThings)); 
 // }
+
+
+
+

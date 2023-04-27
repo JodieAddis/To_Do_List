@@ -42,7 +42,7 @@ html{
                             justify-content: center;
                             margin-top: 30px; 
                             button{
-                                @include add; 
+                                @include add; ;
                             }
                             input{
                                 @include add;
@@ -54,14 +54,14 @@ html{
                 .global_list{
                     .my_list{
                         @include list ;
-                        #element{
-                            display: grid;
-                            grid-template-columns: 1fr 1fr ;
+                        justi
+                        :hover{
+                            background-color: $color_list_hover; 
                         }
                         button{
                             @include delete;
                             :hover{
-                                filter: invert(11%) sepia(90%) saturate(5194%) hue-rotate(9deg) brightness(79%) contrast(119%);
+                                filter: invert(11%) sepia(90%) saturate(5194%) hue-rotate(9deg) brightness(79%) contrast(119%); 
                             }
                         }
                     }
