@@ -82,8 +82,9 @@ toDoList.addEventListener('click', (event) => {
 
 //Fonction deleteToDo
 function deleteToDo(todoId){
-    ToDoThings = ToDoThings.filter((ToDo, index) => index !== todoId); 
-
+    ToDoThings = ToDoThings.filter((ToDo, index) => index !== todoId);
     //re-render
     renderTodo(); 
+
+    localStorage.setItem('ToDoThings', JSON.stringify(ToDoThings));
 }
