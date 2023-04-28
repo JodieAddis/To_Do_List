@@ -1,0 +1,1 @@
+export let ToDoThings = JSON.parse(localStorage.getItem('ToDoThings')) || [];
