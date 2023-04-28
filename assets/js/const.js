@@ -48,13 +48,11 @@ function renderTodo(){
     ToDoThings.forEach((ToDo, index) => {
         toDoList.innerHTML += `
             <ul class="my_list" id=${index}>
-                <div id='container_element'>
-                        <li id='element'>
-                            <input type='checkbox' id='check'>
-                            ${ToDo.value}
-                        </li>
-                        <button id='delete' data-action="delete-item"><img src="./assets/img/trash3.svg" id='trash' data-action="delete"></button>
-                </div>
+                <li id='element'>
+                    <input type='checkbox' id='check'>
+                    ${ToDo.value}
+                </li>
+                <i class="bi bi-trash3" data-action="delete"></i>
             </ul>
         ` 
     })
@@ -72,32 +70,20 @@ toDoList.addEventListener('click', (event) => {
     if(parentElement.className !== 'my_list') return ; //Permet d'afficher le parent uniquement sur les éléments de liste et non le container
     const todo = parentElement; 
     const todoId = Number(todo.id);//Permet de comparer aux index de l'array
-
+    
+    //Cibler l'attribut action
     const action = target.dataset.action;
+
+    action === "delete" && deleteToDo(todoId); 
 
     console.log(todoId, action);
 
-    action === "delete-item" && deleteToDo(todoId); 
 })
 
+//Fonction deleteToDo
+function deleteToDo(todoId){
+    ToDoThings = ToDoThings.filter((ToDo, index) => index !== todoId); 
 
-const buttonDelete = document.getElementById('delete').addEventListener('click', deleteToDo); 
-// function deleteToDo(todoId){
-//     ToDoThings = ToDoThings.filter((todo, index) => index !== todoId); 
-//     ToDoThings.splice(todoId, 1);
-
-//     renderTodo(); 
-
-//     localStorage.setItem('TodoThings', JSON.stringify(ToDoThings)); 
-// }
-
-
-
-function deleteToDo(){
-    const item = document.getElementById('element'); 
-    const container = document.getElementById('container_element');
-    // const itemAndButton = item + buttonDelete; 
-    container.removeChild(item); 
-
-    localStorage.setItem('TodoThings', JSON.stringify(ToDoThings)); 
+    //re-render
+    renderTodo(); 
 }
