@@ -2,10 +2,16 @@
   font-family: narrow;
   src: url(../font/PTSansNarrow-Regular.ttf);
 }
-@media (max-width: 1140px) {
+@media (max-width: 1440px) and (max-width: 1000px) {
+  html {
+    background-color: yellow;
+  }
+  html body {
+    background-color: red;
+  }
   html body main {
-    grid-template-columns: 1fr 500px 1fr;
-    grid-template-rows: 100px 700px 100px;
+    grid-template-columns: 1fr 800px 1fr;
+    grid-template-rows: 100px 500px 100px;
   }
 }
 html {
@@ -20,7 +26,7 @@ html body main {
   height: 400px;
   display: grid;
   grid-template-columns: 1fr 280px 1fr;
-  grid-template-rows: 100px 450px 100px;
+  grid-template-rows: 90px 500px 90px;
 }
 html body main .card_list {
   grid-column: 2;
@@ -29,6 +35,7 @@ html body main .card_list {
   box-shadow: 10px 10px 5px -6px rgba(0, 0, 0, 0.41);
   border: #265200 solid 2px;
   background-color: #FFFFFF;
+  overflow: hidden;
 }
 html body main .card_list .top_list {
   height: 150px;
@@ -83,16 +90,13 @@ html body main .card_list .global_list .my_list {
   list-style-type: none;
   text-transform: capitalize;
   margin: 5px 30px 5px 30px;
-}
-html body main .card_list .global_list .my_list div {
   display: flex;
   justify-content: space-between;
+  line-height: 1.5;
 }
-html body main .card_list .global_list .my_list div button {
-  background-color: #FFFFFF;
-  border: none;
-}
-html body main .card_list .global_list .my_list div button :hover {
-  cursor: pointer;
+html body main .card_list .global_list .my_list .bi-trash3 {
   filter: invert(11%) sepia(90%) saturate(5194%) hue-rotate(9deg) brightness(79%) contrast(119%);
+}
+html body main .card_list .global_list .my_list .bi-trash3 :hover {
+  cursor: pointer;
 }/*# sourceMappingURL=style.css.map */

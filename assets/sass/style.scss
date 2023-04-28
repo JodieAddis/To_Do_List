@@ -1,7 +1,7 @@
 
 @import './modules/_txt_Variables';
 @import './modules/_mixins'; 
-@import './modules/mediaQuery'; 
+@import './modules/_mediaQuery'; 
 
 html{
     width: 100%;
@@ -10,9 +10,10 @@ html{
         background-color: $color_list_hover;
         main{
             border-radius: 20px;
-            height: 400px;        display: grid;
+            height: 400px;        
+            display: grid;
             grid-template-columns: 1fr 280px 1fr;
-            grid-template-rows: 100px 450px 100px;
+            grid-template-rows: 90px 500px 90px;
             .card_list{
                 grid-column: 2;
                 grid-row: 2;
@@ -21,6 +22,8 @@ html{
                 box-shadow: 10px 10px 5px -6px rgba(0,0,0,0.41);
                 border: $border solid 2px;
                 background-color: $color_head;
+                overflow: hidden;
+                // overflow-y: auto;
                 .top_list{
                     height: 150px;
                     background-image: url(../img/IMG_2664.JPG);
@@ -54,15 +57,13 @@ html{
                 .global_list{
                     .my_list{
                         @include list ;
-                        div{
-                            display: flex;
-                            justify-content: space-between;
-                            button{
-                                @include delete;
-                                :hover{
-                                    cursor: pointer;
-                                    filter: invert(11%) sepia(90%) saturate(5194%) hue-rotate(9deg) brightness(79%) contrast(119%); 
-                                }
+                        display: flex;
+                        justify-content: space-between;
+                        line-height: 1.5;
+                        .bi-trash3{
+                            @include delete; 
+                            :hover{
+                                cursor: pointer;
                             }
                         }
                     }
@@ -71,3 +72,4 @@ html{
         }
     }
 }
+

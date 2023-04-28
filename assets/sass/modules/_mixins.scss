@@ -28,6 +28,5 @@
 }
 
 @mixin delete {
-    background-color: $color_head;
-    border: none;
+    filter: invert(11%) sepia(90%) saturate(5194%) hue-rotate(9deg) brightness(79%) contrast(119%); 
 }

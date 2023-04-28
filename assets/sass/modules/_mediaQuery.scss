@@ -1,9 +1,13 @@
-@media (max-width: 1140px) {
-    html{
-        body{
-            main{
-                grid-template-columns: 1fr 500px 1fr;
-                grid-template-rows: 100px 700px 100px;
+@media (max-width: 1440px) {
+    @media (max-width: 1000px) {
+        html{
+            background-color: yellow;
+            body{
+                background-color: red;
+                main{
+                    grid-template-columns: 1fr 800px 1fr;
+                    grid-template-rows: 100px 500px 100px;
+                }
             }
         }
     }

@@ -1,7 +1,7 @@
 
 
-const form = document.querySelector('.item_submission'); 
-const toDoInput = document.querySelector('#newItem'); 
+// const form = document.querySelector('.item_submission'); 
+// const toDoInput = document.querySelector('#newItem'); 
 
 form.addEventListener('submit', function (event){
     event.preventDefault() ; 
@@ -35,7 +35,7 @@ function saveToDo(){
 }
 
 /* RENDER A TODO */
-const toDoList = document.querySelector('.global_list');//On sélectionne la section contenant le <ul>
+// const toDoList = document.querySelector('.global_list');//On sélectionne la section contenant le <ul>
 
 function renderTodo(){
     if(ToDoThings.length === 0){
@@ -61,7 +61,7 @@ function renderTodo(){
 //First render
 renderTodo(); 
 
-/* TARGET A TODO : click event listener for all the todo*/
+/* Cibler une tâche au clic */
 toDoList.addEventListener('click', (event) => {
     const target = event.target ;//On sait quel élément exactement est cliqué
     // console.log(target); 
