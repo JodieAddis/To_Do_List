@@ -85,6 +85,6 @@ function deleteToDo(todoId){
     ToDoThings = ToDoThings.filter((ToDo, index) => index !== todoId);
     //re-render
     renderTodo(); 
-
+    //Suppression de la tâche en cache 
     localStorage.setItem('ToDoThings', JSON.stringify(ToDoThings));
 }
